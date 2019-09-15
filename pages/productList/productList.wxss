@@ -33,3 +33,9 @@
   height: 6rpx;
   background: #69C3AA;
 }
+.weui-media-box__title{
+  font-size: 50rpx;
+}
+.placeholder1{
+  color: red;
+}
