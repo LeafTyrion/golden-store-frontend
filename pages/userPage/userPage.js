@@ -6,14 +6,43 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    userInfo: {},
+    lists: [
+      {
+        text: "我的订单",
+        path: "/pages/orders/orders"
+      },
+      {
+        text: "收货地址",
+        path: "/pages/address/address"
+      },
+      {
+        text: "常见问题",
+        path: "/pages/problem/problem"
+      },
+      {
+        text: "联系客服",
+        path: "/pages/service/service"
+      }
+    ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+    var that = this;
+    wx.login({
+      success: function () {
+        wx.getUserInfo({
+          success: function (res) {
+            that.setData({
+              userInfo: res.userInfo
+            })
+          }
+        })
+      }
+    })
   },
 
   /**

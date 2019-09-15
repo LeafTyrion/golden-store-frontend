@@ -32,7 +32,27 @@ Page({
       "price": "12",
       "stock": "123",
       "url": "/images/timg.jpeg"
-    }, ],
+      }, {
+        "name": "可乐",
+        "price": "12",
+        "stock": "123",
+        "url": "/images/timg.jpeg"
+      }, {
+        "name": "可乐",
+        "price": "12",
+        "stock": "123",
+        "url": "/images/timg.jpeg"
+      }, {
+        "name": "可乐",
+        "price": "12",
+        "stock": "123",
+        "url": "/images/timg.jpeg"
+      }, {
+        "name": "可乐",
+        "price": "12",
+        "stock": "123",
+        "url": "/images/timg.jpeg"
+      }, ],
   },
   navbarTap: function(e) {
     console.log(e.currentTarget.dataset.idx);
