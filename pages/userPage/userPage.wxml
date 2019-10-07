@@ -1,9 +1,7 @@
-<!--pages/userPage/userPage.wxml-->
+<!-- pages/userPage/userPage.wxml -->
 <view class="personal_info">
 	<view class="photo_wrap">
-		<image src="{{userInfo.avatarUrl}}" class="photo"></image>
+		<image src="{{userInfo.avatarUrl}}" class="photo" />
 	</view>
-	<view class="nickname">
-		{{userInfo.nickName}}
-	</view>
+	<view class="nickname">{{userInfo.nickName}}</view>
 </view>

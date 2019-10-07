@@ -1,57 +1,63 @@
 // pages/typeList/typeList.js
 
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     itemArray: [
       {
-        "id":1,
-        "itemText": '11月20日话剧《风声》'
-      },
-      {
         "id": 1,
-        "itemText": '11月20日话剧《原野》'
+        "itemText": '冒菜'
       },
       {
-        "id": 1,
-        "itemText": '11月28日“夜店”演唱会'
+        "id": 2,
+        "itemText": '酸辣粉'
       },
       {
-        "itemText": '11月20日话剧《风声》'
+        "id": 3,
+        "itemText": '麻辣香锅'
       },
       {
-        "itemText": '11月20日话剧《原野》'
+        "id": 4,
+        "itemText": '苹果'
       },
       {
-        "itemText": '11月28日“夜店”演唱会'
+        "id": 5,
+        "itemText": '香蕉'
       },
       {
-        "itemText": '11月20日话剧《风声》'
+        "id": 6,
+        "itemText": '可乐'
       },
       {
-        "itemText": '11月20日话剧《风声》'
+        "id": 7,
+        "itemText": '雪碧'
       },
       {
-        "itemText": '11月20日话剧《原野》'
+        "id": 8,
+        "itemText": '芬达'
       },
       {
-        "itemText": '11月28日“夜店”演唱会'
+        "id": 9,
+        "itemText": '麦当劳'
       },
       {
-        "itemText": '11月20日话剧《风声》'
+        "id": 10,
+        "itemText": '肯德基'
+      },
+      {
+        "id": 11,
+        "itemText": '牛肉面'
       }
     ],
   },
-
-
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+
   },
 
   /**
