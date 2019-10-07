@@ -9,8 +9,10 @@
   ],
   "window": {
     "navigationBarBackgroundColor": "#69c3aa",
+    "backgroundColor": "#69c3aa",
     "backgroundTextStyle": "light",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "color": "#2c2c2c",
