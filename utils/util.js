@@ -22,7 +22,7 @@ module.exports = {
 /**
  * 封封微信的的request
  */
-function request(url, data = {}, method = "GET", contentType ="application/json") {
+function request(url, data = {}, method = "GET", contentType = "application/json") {
   return new Promise(function (resolve, reject) {
     wx.request({
       url: url,
@@ -34,21 +34,21 @@ function request(url, data = {}, method = "GET", contentType ="application/json"
       },
       success: function (res) {
         if (res.statusCode == 200) {
-
+          console.log(res)
           if (res.data.errno == 401) {
             //需要登录后才可以操作
             wx.showModal({
-                title: '',
-                content: '请先登录',
-                success: function (res){
-                    if (res.confirm) {
-                        wx.removeStorageSync("userInfo");
-                        wx.removeStorageSync("token");
-                        wx.switchTab({
-                            url: '/pages/ucenter/index/index'
-                        });
-                    }
+              title: '',
+              content: '请先登录',
+              success: function (res) {
+                if (res.confirm) {
+                  wx.removeStorageSync("userInfo");
+                  wx.removeStorageSync("token");
+                  wx.switchTab({
+                    url: '/pages/ucenter/index/index'
+                  });
                 }
+              }
             });
           } else {
             resolve(res.data);

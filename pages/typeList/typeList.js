@@ -108,7 +108,7 @@ Page({
       that.getTypeData();
       wx.hideNavigationBarLoading() //完成停止加载
       wx.stopPullDownRefresh() //停止下拉刷新
-    },1500)
+    }, 1500)
   },
 
   /**
@@ -123,5 +123,18 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  toProductList: function (e) {
+    var type_id=e.currentTarget.dataset.index
+    //带参跳转
+    wx.navigateTo({
+      url: '../productList/productList?type_id='+type_id,
+      success: (result) => {
+
+      },
+      fail: () => { },
+      complete: () => { }
+    });
   }
 })

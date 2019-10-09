@@ -1,4 +1,7 @@
 // pages/productList/productList.js
+const util = require("../../utils/util.js")
+const api = require("../../utils/api.js")
+
 Page({
 
   /**
@@ -7,31 +10,27 @@ Page({
   data: {
     navbar: ['综合', '销量', '价格', '新品'],
     currentTab: 0,
-    goodsList: [{
-      "name": "可乐",
-      "price": "12",
-      "stock": "123",
-      "url": "/images/timg.jpeg"
-    }, {
-      "name": "可乐",
-      "price": "12",
-      "stock": "123",
-      "url": "/images/timg.jpeg"
-    }, {
-      "name": "可乐",
-      "price": "12",
-      "stock": "123",
-      "url": "/images/timg.jpeg"
-    }, {
-      "name": "可乐",
-      "price": "12",
-      "stock": "123",
-      "url": "/images/timg.jpeg"
-    }, {
-      "name": "可乐",
-      "price": "12",
-      "stock": "123",
-      "url": "/images/timg.jpeg"
+    goodsList: [
+      {
+        "name": "可乐",
+        "price": "12",
+        "stock": "123",
+        "url": "/images/timg.jpeg"
+      }, {
+        "name": "可乐",
+        "price": "12",
+        "stock": "123",
+        "url": "/images/timg.jpeg"
+      }, {
+        "name": "可乐",
+        "price": "12",
+        "stock": "123",
+        "url": "/images/timg.jpeg"
+      }, {
+        "name": "可乐",
+        "price": "12",
+        "stock": "123",
+        "url": "/images/timg.jpeg"
       }, {
         "name": "可乐",
         "price": "12",
@@ -52,9 +51,14 @@ Page({
         "price": "12",
         "stock": "123",
         "url": "/images/timg.jpeg"
-      }, ],
+      }, {
+        "name": "可乐",
+        "price": "12",
+        "stock": "123",
+        "url": "/images/timg.jpeg"
+      },],
   },
-  navbarTap: function(e) {
+  navbarTap: function (e) {
     console.log(e.currentTarget.dataset.idx);
     this.setData({
       currentTab: e.currentTarget.dataset.idx
@@ -63,56 +67,64 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-
+  onLoad: function (options) {
+    var type_id = options.type_id
+    this.getAllGoodData(type_id)
+  },
+  getAllGoodData: function (type_id) {
+    let that = this;
+    util.request(api.GetGoodByType + type_id).then(function (res) {
+      that.setData({ goodsList: res })
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
-  }
+  },
+
 })
