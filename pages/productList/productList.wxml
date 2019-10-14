@@ -7,22 +7,22 @@
   <view class="page__bd">
     <view class="weui-panel weui-panel_access">
       <view class="weui-panel__bd">
-        <block wx:for="{{goodsList}}" wx:for-item="a" wx:key="id">
+        <block wx:for="{{goodsList}}" wx:for-item="goodsList" wx:key="id">
           <navigator url="../productDetail/productDetail" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
             <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-              <image class="weui-media-box__thumb" src="{{a.url}}" />
+              <image class="weui-media-box__thumb" src="{{goodsList.mainImg}}" />
             </view>
             <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-              <view class="weui-media-box__title">{{a.name}}</view>
+              <view class="weui-media-box__title">{{goodsList.name}}</view>
               <view class="weui-flex">
                 <view class="weui-flex__item">
-                  <view class="placeholder1">价格:{{a.price}}</view>
+                  <view class="placeholder1">价格:{{goodsList.price}}</view>
                 </view>
                 <view class="weui-flex__item">
-                  <view class="placeholder2">库存:{{a.stock}}</view>
+                  <view class="placeholder2">库存:{{goodsList.stock}}</view>
                 </view>
                 <view class="weui-flex__item">
-                  <view class="placeholder2">销量:{{a.price}}</view>
+                  <view class="placeholder2">销量:{{goodsList.price}}</view>
                 </view>
               </view>
             </view>

@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    cartGoods: [],
   },
 
   /**
@@ -62,5 +62,10 @@ Page({
    */
   onShareAppMessage: function () {
     
+  },
+  toIndex: function(){
+    wx.switchTab({
+      url: '/pages/indexPage/indexPage',
+    })
   }
 })
