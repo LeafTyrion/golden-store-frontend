@@ -1,1 +1,41 @@
 /* pages/productDetail/productDetail.wxss */
+
+.goodsimgs{
+  position: relative;
+  width: 750rpx;
+  height: 750rpx;
+}
+
+.goodsimgs image{
+  width: 750rpx;
+  height: 750rpx;
+}
+
+
+.goods_bottom_btn {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  height: 50px;
+  z-index: 2;
+  background-color: #FFF;
+  border-top: 1px solid #E5E5E5;
+}
+
+
+
+.goods_button {
+  width: 25%;
+  float: right;
+  height: 50px;
+  font-size: 30rpx;
+  line-height: 50px;
+  text-align: center;
+  color: #FFFF;
+}
+.green {
+  background-color: #69C3AA;
+}
+.blue {
+  background-color: #00aaef;
+}
