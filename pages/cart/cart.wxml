@@ -12,7 +12,7 @@
 </view> -->
 <view class="pages">
 <view class="no-cart" wx:if="{{cartGoods.length <= 0}}">
-  <image src="/images/cart.png"></image>
+  <image src="/images/icon/cart.png"></image>
   <view>购物车空空如也～</view>
   <button class="weui-btn" bindtap="toIndex">去逛逛</button>
 </view>
