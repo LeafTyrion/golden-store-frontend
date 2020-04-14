@@ -1,2 +1,16 @@
-<!--pages/index/index.wxml-->
-<text>pages/index/index.wxml</text>
+<view class="index">
+	<!-- 搜索框 -->
+	<SearchInput/>
+
+	<!-- 轮播图 -->
+	<view class="index_swiper">
+		<swiper autoplay="true" indicator-dots="true" circular="true">
+			<swiper-item wx:for="{{swiperList}}" wx:key="goods_id">
+				<navigator url="{{item.navigator_url}}">
+					<image mode="widthFix" src="{{item.image_src}}"></image>
+				</navigator>
+			</swiper-item>
+		</swiper>
+	</view>
+
+</view>

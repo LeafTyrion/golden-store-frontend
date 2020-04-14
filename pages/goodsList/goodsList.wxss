@@ -1,48 +1,29 @@
-/* pages/productList/productList.wxss */
-.navbar {
-  z-index: 99;
-  position: fixed;
-  width: 100%;
-  flex: none;
+.first_tab .goods_item {
   display: flex;
-  background: #fff;
+  border-bottom: 2rpx solid #cccccc;
 }
-
-.navbar .item {
-  position: relative;
-  flex: auto;
-  text-align: center;
-  line-height: 80rpx;
-  font-size: 14px;
+.first_tab .goods_item .goods_img_wrap {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-/* 顶部导航字体颜色 */
-
-.navbar .item.active {
-  color: #69c3aa;
+.first_tab .goods_item image {
+  width: 70%;
 }
-
-/* 顶部指示条属性 */
-
-.navbar .item.active:after {
-  content: "";
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 6rpx;
-  background: #69c3aa;
+.first_tab .goods_item .goods_info_wrap {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
-
-.weui-panel__bd{
-  margin-top: 90rpx;
+.first_tab .goods_item .goods_info_wrap .goods_name {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
-
-.weui-media-box__title {
-  font-size: 50rpx;
-}
-
-.placeholder1 {
-  color: red;
+.first_tab .goods_item .goods_info_wrap .goods_price {
+  color: var(--themeColor);
+  font-size: 32rpx;
 }
