@@ -70,9 +70,30 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 2,
 					"name": "商品列表",
 					"pathName": "pages/goodsList/goodsList",
+					"query": "id=3",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/user/user",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "商品详情",
+					"pathName": "pages/goodsDetail/goodsDetail",
 					"query": "id=3",
 					"scene": null
 				}

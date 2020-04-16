@@ -32,7 +32,7 @@ Page({
   },
   QueryParams: {
     query: "",
-    typeId: "",
+    subTypeId: null,
     page: 1,
     size: 10
   },
@@ -44,16 +44,17 @@ Page({
   onLoad: function (options) {
     // 获取页面传递参数
     console.log(options)
-    this.QueryParams.id = options.id;
+    this.QueryParams.subTypeId = parseInt(options.id);
     this.getGoodsList();
   },
 
   // 获取商品列表数据
   async getGoodsList() {
     const result = await request({
-      url: "http://localhost:8086/goods/allGoods",
+      url: "http://localhost:8086/wx-goods/allGoods",
       data: this.QueryParams
     });
+    console.log(this.QueryParams);
     console.log(result);
     const res = result.data;
     console.log(res);

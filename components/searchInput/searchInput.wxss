@@ -3,7 +3,7 @@
     padding: 10rpx;
     background-color: #69C3AA;
   }
-  .search_input navigator {
+  .search_input .nav {
     height: 100%;
     display: flex;
     justify-content: center;

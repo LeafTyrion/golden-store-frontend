@@ -48,7 +48,7 @@ Page({
   async getCategory() {
     // async await语法 发送异步请求
     const result = await request({
-      url: "http://localhost:8084/type/allType"
+      url: "http://localhost:8086/wx-type/allType"
     });
     console.log(result);
     this.category = result.data;
