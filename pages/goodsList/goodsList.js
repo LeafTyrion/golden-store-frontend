@@ -1,7 +1,9 @@
 // pages/productList/productList.js
 const util = require("../../utils/util.js")
 const api = require("../../utils/api.js")
-import { request } from "../../utils/request.js";
+import {
+  request
+} from "../../utils/request.js";
 import regeneratorRuntime from "../../lib/regenerator-runtime/runtime.js"
 
 Page({
@@ -10,8 +12,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabs: [
-      {
+    tabs: [{
         id: 0,
         value: "综合",
         isActive: true
@@ -28,7 +29,7 @@ Page({
       }
     ],
     goodsList: [],
-    imagesList:[]
+    imagesList: []
   },
   QueryParams: {
     query: "",
@@ -54,10 +55,8 @@ Page({
       url: "http://localhost:8086/wx-goods/allGoods",
       data: this.QueryParams
     });
-    console.log(this.QueryParams);
     console.log(result);
     const res = result.data;
-    console.log(res);
     // 计算总页数
     this.totalPages = res.totalPages;
     this.setData({
@@ -89,7 +88,7 @@ Page({
       })
     } else {
       console.log("还有呢！");
-      this.QueryParams.pagenum++;
+      this.QueryParams.page++;
       this.getGoodsList();
     }
 

@@ -6,7 +6,10 @@
     "pages/user/user",
     "pages/goodsList/goodsList",
     "pages/goodsDetail/goodsDetail",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/pay/pay",
+    "pages/order/order",
+    "pages/feedback/feedback"
   ],
   "window": {
     "navigationBarBackgroundColor": "#69c3aa",

@@ -1,69 +1,46 @@
-<!--pages/shopcar/shopCar.wxml-->
-<!--pages/cart/cart.wxml-->
-<!-- <view class="J-shopping-cart-empty" hidden="{{iscart}}">
-  <view class="shopping-cart-empty">
-    <image class='bg' src='/images/cart.png' />
-    <view class="cart"></view>
-    <text class='empty-text'>购物车空空如也</text>
-    <navigator url="/pages/listall/listall" class="button button-primary">
-      去购物
-    </navigator>
-  </view>
-</view> -->
-<view class="pages">
-	<view class="no-cart" wx:if="{{cartGoods.length <= 0}}">
+<view class="pages" wx:if="{{cart.length == 0}}">
+	<view class="no_cart">
 		<image src="/images/icon/cart.png" />
 		<view>购物车空空如也～</view>
 		<button class="weui-btn" bindtap="toIndex">去逛逛</button>
 	</view>
+</view>
 
-
-	<view class="scroll" hidden="{{hidden}}">
-		<scroll-view class="scroll" scroll-y="true">
-			<view class="separate"></view>
-			<view wx:for="{{carts}}">
-				<view class="cart_container">
-					<!-- <view wx:if="{{!item.isSelect}}">
-          <icon class="item-select" bindtap="switchSelect" data-index="{{index}}" data-id="{{index}}" type="circle" size="20"></icon>
-        </view>
-        <view wx:elif="{{item.isSelect}}">
-          <icon class="item-select" bindtap="switchSelect" data-index="{{index}}" data-id="{{index}}" type="success" color="#f0145a" size="20"></icon>
-        </view> -->
-
-					<image class="item-image" src="{{item.imgUrl}}"></image>
-					<import src="../template/template.wxml" />
-					<view class="column">
-						<text class="title">{{item.name}}</text>
-						<image bindtap="delGoods" id="img{{index}}" data-index="{{index}}" src="/image/del.png"></image>
-						<view class="row">
-							<text class="sku-price">小计：￥{{item.price * item.count}}</text>
-							<view class="sku">
-								<template is="quantity" data="{{ ...item,index:index}}" />
-							</view>
+<!-- 购物车内容 -->
+<view class="cart_content">
+	<view class="cart_title">购物车</view>
+	<view class="cart_main" wx:if="{{cart.length!==0}}">
+		<view class="cart_item" wx:for="{{cart}}" wx:key="id">
+			<!-- 商品图片 -->
+			<navigator class="cart_img_wrap" url="/pages/goodsDetail/goodsDetail?id={{item.id}}">
+				<image mode="widthFix" src="{{item.imageUrl?item.imageUrl:'/images/icon/cart.png'}}" />
+			</navigator>
+			<view class="cart_info_wrap">
+				<view class="goods_name">{{item.name}}</view>
+				<view class="goods_price_wrap">
+					<view class="goods_price">{{item.price}}</view>
+					<view class="cart_num_tool">
+						<view class="num_edit" bindtap="handleItemNumEdit" data-id="{{item.id}}" data-operation="{{-1}}">
+							-
 						</view>
-
+						<view class="goods_num">{{item.quantity}}</view>
+						<view class="num_edit" bindtap="handleItemNumEdit" data-id="{{item.id}}" data-operation="{{1}}">
+							+
+						</view>
 					</view>
 				</view>
-				<view class="separate"></view>
 			</view>
-		</scroll-view>
+		</view>
 	</view>
-
-	<!-- <view class="bottom_total" hidden="{{hidden}}">
-  <view class="bottom_line"></view>
-
-  <view class="row"> -->
-	<!-- 
-    <view wx:if="{{!isAllSelect}}">
-      <icon class="item-allselect" bindtap="allSelect" type="circle" size="20"></icon>
-    </view>
-    <view wx:elif="{{isAllSelect}}">
-      <icon class="item-allselect" bindtap="allSelect" type="success" color="#f0145a" size="20"></icon>
-    </view> -->
-	<!-- <text class="small_text"></text>
-    <text>合计:￥ </text>
-    <text class="price">{{totalMoney}}</text>
-    <button class="button-red" bindtap="toBuy" formType="submit">去结算</button>
-  </view>
-</view> -->
+</view>
+<!-- 底部工具栏 -->
+<view class="footer_tool" wx:if="{{cart.length!==0}}">
+	<view class="total_price_wrap">
+		<view class="total_price">
+			合计：
+			<text class="total_price_text">￥{{totalPrice}}</text>
+		</view>
+		<view>包含运费</view>
+	</view>
+	<view class="order_pay_wrap" bindtap="handlePay">结算({{totalNum}})</view>
 </view>

@@ -23,7 +23,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.8.2",
-	"appid": "wx8ad2da66185e346d",
+	"appid": "wx8bbd6224d9684284",
 	"projectname": "golden_store",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -95,6 +95,20 @@
 					"name": "商品详情",
 					"pathName": "pages/goodsDetail/goodsDetail",
 					"query": "id=3",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "支付页面",
+					"pathName": "pages/pay/pay",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 7,
+					"name": "全部订单",
+					"pathName": "pages/order/order",
+					"query": "openId=123",
 					"scene": null
 				}
 			]

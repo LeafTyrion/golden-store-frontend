@@ -46,6 +46,10 @@ page {
   padding: 20rpx;
 }
 
+.goods_info .goods_info_content {
+  margin-left: 40rpx;
+}
+
 .btm_tool {
   position: fixed;
   left: 0;
@@ -172,7 +176,7 @@ page {
   margin: 1rpx;
 }
 
-.row .quantity-position {
+.row .quantity_position {
   position: absolute;
   right: 30rpx;
 

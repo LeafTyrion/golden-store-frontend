@@ -57,7 +57,6 @@ Page({
       time: Date.now(),
       data: this.category
     });
-    console.log(this.category);
 
     let leftMenuList = this.category.map(v => v.name);
     let rightContent = this.category[0].subType;
