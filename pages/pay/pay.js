@@ -70,38 +70,39 @@ Page({
   async handleOrderPay() {
 
 
-    try {
-      const {
-        address
-      } = this.data;
-      if (!address.userName) {
-        await showToast({
-          title: "您还没有选择收货地址"
-        });
-        return
-      };
-
-      const price = this.data.totalPrice;
-      const cart = this.data.cart;
-      let goods = [];
-      cart.forEach(v => goods.push({
-        id: v.id,
-        quantity: v.quantity,
-        price: v.price
-      }));
-      let openId = wx.getStorageSync('openId')
-      const orderParams = {
-        price,
-        address,
-        goods,
-        openId
-      };
-      // 发送POST请求，传输订单信息
-      const result = await request({
-        url: "http://localhost:8087/wx-orders/creatOrders",
-        method: "POST",
-        data: orderParams,
+    const {
+      address
+    } = this.data;
+    if (!address.userName) {
+      await showToast({
+        title: "您还没有选择收货地址"
       });
+      return
+    };
+
+    const price = this.data.totalPrice;
+    const cart = this.data.cart;
+    let goods = [];
+    cart.forEach(v => goods.push({
+      id: v.id,
+      quantity: v.quantity,
+      price: v.price
+    }));
+    let user = wx.getStorageSync('user')
+    const orderParams = {
+      price,
+      address,
+      goods,
+      user
+    };
+    // 发送POST请求，传输订单信息
+    const result = await request({
+      url: "http://localhost:8087/wx-orders/creatOrders",
+      method: "POST",
+      data: orderParams,
+    });
+
+    if (result.statusCode == 200) {
       await showToast({
         title: "提交订单成功，货物将尽快送达"
       });
@@ -111,7 +112,7 @@ Page({
           url: '/pages/cart/cart',
         })
       }, 1000);
-    } catch (error) {
+    } else {
       console.log(error);
       await showToast({
         title: "提交订单失败，请稍后重试"

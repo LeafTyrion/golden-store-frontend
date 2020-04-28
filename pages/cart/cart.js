@@ -84,7 +84,7 @@ Page({
     }
   },
   async handlePay() {
-    if (wx.getStorageSync('openId')) {
+    if (wx.getStorageSync('user')) {
       wx.navigateTo({
         url: '/pages/pay/pay',
       });

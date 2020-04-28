@@ -17,6 +17,7 @@ Page({
   data: {
     userInfo: {},
     collectNums: 0,
+    user:{},
 
   },
   /**
@@ -24,14 +25,14 @@ Page({
    */
   onShow: function () {
     const userInfo = wx.getStorageSync("userInfo");
-    const collect = wx.getStorageSync("collect");
+    const user = wx.getStorageSync("user");
     this.setData({
       userInfo,
-      collectNums: collect.length
+      user,
     })
   },
 
-  // 获取用户收货地址
+  // 用户收货地址管理
   async handleChooseAddress() {
     try {
       // 1. 获取权限信息
@@ -78,7 +79,8 @@ Page({
       });
       console.log(res);
       // wx.setStorageSync("token", res.data.token);
-      wx.setStorageSync("openId", res.data.openid);
+      wx.setStorageSync("user", res.data);
+
       const {
         userInfo
       } = e.detail;
