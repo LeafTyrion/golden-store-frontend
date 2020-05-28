@@ -1,56 +1,56 @@
 // pages/order/order.js
-import { request } from "../../utils/request";
+import {
+  request
+} from "../../utils/request";
 import regeneratorRuntime from "../../lib/regenerator-runtime/runtime.js"
 
 Page({
 
   data: {
-    orders: [
-      {
-        "order_number": "HMDD20190802000000000428",
-        "order_price": 13999,
-        "create_time": 1564731518,
-      },
-      {
-        "order_number": "HMDD20190802000000000428",
-        "order_price": 13999,
-        "create_time": 1564731518,
-      },
-      {
-        "order_number": "HMDD20190802000000000428",
-        "order_price": 13999,
-        "create_time": 1564731518,
-      },
-    ]
+    ordersList: []
   },
 
-  onLoad: function(options){
+  QueryParams: {
+    query: "",
+    id: null,
+    page: 1,
+    size: 10
+  },
+  totalPages: 1,
 
+  onLoad: function (options) {
+    this.QueryParams.id=wx.getStorageSync('user').id;
+    console.log(this.QueryParams)
+    this.getOrdersList();
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-   
+  async getOrdersList() {
 
-    let pages = getCurrentPages();
-    let currentPage = pages[pages.length - 1];
-    console.log(currentPage.options);
-    const { type } = currentPage.options;
-    this.getOrders(type);
-  },
-  async getOrders(type) {
-    const result = this.data.orders;
-    // const result = await request({ url: "/my/orders/all", data: { type } })
-    console.log(result);
-    // this.setData({
-    //   orders: result.data.message,
-    // })
-  
-    this.setData({
-      orders: result.map(v => ({ ...v, create_time_cn: (new Date(v.create_time * 1000).toLocaleString()) }))
+    const result = await request({
+      url: "http://localhost:8087/wx-orders/allOrders",
+      data: this.QueryParams
     })
+    console.log(result);
+    this.totalPages = result.data.totalPages;
+    this.setData({
+      ordersList:[...this.data.ordersList,...result.data.content],
+    })
+  },
+
+   // 页面上滑滚动条触底
+   onReachBottom() {
+    // 判断下一页有没有数据
+    if (this.QueryParams.page >= this.totalPages) {
+      console.log("没有下一页数据啦！");
+      wx.showToast({
+        title: '没有啦！',
+      })
+    } else {
+      console.log("还有呢！");
+      this.QueryParams.page++;
+      this.getOrdersList();
+    }
+
   },
 
 })

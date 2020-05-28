@@ -1,66 +1,59 @@
 // pages/feedback/feedback.js
+import {
+  request
+} from "../../utils/request";
+import regeneratorRuntime from "../../lib/regenerator-runtime/runtime.js"
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    opinionParams: {
+      user_id: null,
+      textValue: ""
+    }
+  },
+
+  // 文本域输入事件
+  handleTextInpue(e) {
+
+    this.data.opinionParams.textValue = e.detail.value
 
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  async handleFormSubmit() {
+    this.data.opinionParams.user_id = wx.getStorageSync('user').id;
+    const textValue = this.data.opinionParams.textValue;
+    // 验证内容不为空
+    if (!textValue.trim()) {
+      wx.showToast({
+        title: '问题描述不能为空',
+        icon: 'none',
+        mask: true,
+      });
+      return;
+    }
+    wx.showLoading({
+      title: "正在上传中...",
+      mask: true,
+    });
 
-  },
+    const res = await request({
+      url: "http://localhost:8085/wx-opinions/addOpinion",
+      data: this.data.opinionParams,
+      method: "post"
+    });
+    this.setData({
+      textValue: ""
+    })
+    console.log("只写了文本")
+    wx.hideLoading();
+    wx.navigateBack({
+      delta: 1
+    });
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
   }
 })

@@ -9,7 +9,9 @@
     "pages/search/search",
     "pages/pay/pay",
     "pages/order/order",
-    "pages/feedback/feedback"
+    "pages/feedback/feedback",
+    "pages/orderDetail/orderDetail",
+    "pages/appInfo/appInfo"
   ],
   "window": {
     "navigationBarBackgroundColor": "#69c3aa",

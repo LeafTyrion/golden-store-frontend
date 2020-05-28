@@ -6,6 +6,7 @@
 	"setting": {
 		"urlCheck": false,
 		"es6": true,
+		"enhance": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
@@ -19,7 +20,7 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"enhance": true
+		"useCompilerModule": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.8.2",
@@ -109,6 +110,20 @@
 					"name": "全部订单",
 					"pathName": "pages/order/order",
 					"query": "openId=123",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "订单详情",
+					"pathName": "pages/orderDetail/orderDetail",
+					"query": "order_id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "意见反馈",
+					"pathName": "pages/feedback/feedback",
+					"query": "",
 					"scene": null
 				}
 			]

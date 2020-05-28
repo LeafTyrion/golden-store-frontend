@@ -1,1 +1,28 @@
 /* pages/feedback/feedback.wxss */
+page {
+  background-color: #eeeeee;
+}
+.fb_main {
+  padding: 20rpx;
+  color: #666666;
+}
+
+.fb_main .fb_content {
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+.fb_main .fb_content textarea {
+  padding: 10rpx;
+  height: 900rpx;
+}
+
+
+.fb_main .form_btn_wrap {
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: flex-end;
+}
+.fb_main .form_btn_wrap button {
+  margin: 0;
+  width: 30%;
+}

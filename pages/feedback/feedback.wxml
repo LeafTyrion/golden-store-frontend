@@ -1,2 +1,10 @@
-<!--pages/feedback/feedback.wxml-->
-<text>pages/feedback/feedback.wxml</text>
+<!-- pages/feedback/feedback.wxml -->
+<view class="fb_main">
+
+	<view class="fb_content">
+		<textarea placeholder="请描述一下详细问题" value="{{textValue}}" bindinput="handleTextInpue" />
+		</view>
+  <view class="form_btn_wrap">
+            <button type="primary" bindtap="handleFormSubmit">提交</button>
+        </view>
+</view>

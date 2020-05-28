@@ -1,7 +1,4 @@
 <view class="index">
-	<!-- 搜索框 -->
-	<SearchInput/>
-
 	<!-- 轮播图 -->
 	<view class="index_swiper">
 		<swiper autoplay="true" indicator-dots="true" circular="true">

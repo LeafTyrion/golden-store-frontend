@@ -17,7 +17,7 @@ Page({
   data: {
     userInfo: {},
     collectNums: 0,
-    user:{},
+    user: {},
 
   },
   /**
@@ -29,6 +29,12 @@ Page({
     this.setData({
       userInfo,
       user,
+    })
+  },
+
+  phoneCall() {
+    wx.makePhoneCall({
+      phoneNumber: '1234567890',
     })
   },
 
@@ -98,6 +104,8 @@ Page({
     };
     this.onShow();
   },
+
+
 
   async logout() {
     const result = await showModal({
