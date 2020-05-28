@@ -1,0 +1,41 @@
+<!-- 收货地址 -->
+<view class="revice_address_row">
+    <view class="cart_title">收货地址</view>
+    <!-- 当收货地址存在，显示详细信息 -->
+    <view class="user_info_row">
+        <view class="user_info">
+            <view>{{order.userName}}</view>
+            <view>{{order.provinceName}}{{order.cityName}}{{order.countyName}}{{order.detailInfo}}</view>
+        </view>
+        <view class="user_phone">{{order.telNumber}}</view>
+    </view>
+</view>
+<!-- 订单内容 -->
+<view class="cart_content">
+    <view class="cart_title">订单内容</view>
+    <view class="cart_main">
+        <view class="cart_item" wx:for="{{order.goodsVOList}}" wx:key="id">
+            <view class="cart_info_wrap">
+                <view class="goods_name">{{item.goodsName}}</view>
+                <view class="goods_price_wrap">
+                    <view class="goods_price">￥{{item.price}}</view>
+                    <view class="cart_num_tool">
+                        <view class="goods_num">X {{item.quantity}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- 底部工具栏 -->
+<view class="footer_tool">
+    <!-- 总价格 -->
+    <view class="total_price_wrap">
+        <view class="total_price">
+            合计：
+            <text class="total_price_text">￥{{order.price}}</text>
+        </view>
+        <view>包含运费</view>
+    </view>
+       <view class="order_pay_wrap">{{order.status}}</view>
+</view>
