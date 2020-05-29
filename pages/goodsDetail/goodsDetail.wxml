@@ -5,7 +5,7 @@
 		</swiper-item>
 	</swiper>
 </view>
-<view class="goods_price">批发价：￥{{goods.tradePrice}}</view>
+<view class="goods_price">平台价：￥{{goods.tradePrice}}</view>
 <view class="goods_name_row">
 	<view class="goods_name">{{goods.name}}</view>
 </view>
@@ -34,7 +34,7 @@
 			<image class="image-sku" src="{{goods.imageUrl}}"></image>
 			<view class="column">
 				<text class="sku-title">{{goods.name}}</text>
-				<text class="sku-price">批发价：￥{{goods.tradePrice}}</text>
+				<text class="sku-price">平台价：￥{{goods.tradePrice}}</text>
 				<text class="sku-title">库存：{{goods.stock}} 件</text>
 			</view>
 		</view>
